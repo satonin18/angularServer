@@ -10,7 +10,7 @@
 //
 //     getData() {
 //     // getUsers(): Observable<User[]> {
-//     //     return this.http.get('users.json') // Observable<any>
+//     //     return this.http.get('list_users.json') // Observable<any>
 //     //                         .pipe(map(data => {
 //     //                             const usersList = data["userList"];
 //     //                           // tslint:disable-next-line:only-arrow-functions

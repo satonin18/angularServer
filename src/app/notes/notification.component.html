@@ -1,0 +1,32 @@
+<p>Tests</p>
+<!--<table>-->
+<!--    <td>-->
+<!--    Имя пользователя: {{notification?.id}}-->
+<!--      <br>-->
+<!--    Возраст пользователя: {{notification?.}}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<p>Notifications/</p>
+<table>
+  <tr>
+    <td>notification?.notificationType</td>
+    <td>notification?.organization.name</td>
+    <td>notification?.dateResponse</td>
+    <td>notification?.status.name</td>
+    <td>notification?.id</td>
+    <td>notification?.dateReceived</td>
+    <td>notification?.letterNumber</td>
+  </tr>
+
+  <tr *ngFor = "let notification of notifications">
+    <td>{{notification?.notificationType}}</td>
+    <td>{{notification?.organization.name}}</td>
+    <td>{{notification?.dateResponse | date :"yyyy-MM-dd"}}</td>
+    <td>{{notification?.status.name}}</td>
+    <td>{{notification?.id}}</td>
+    <td>{{notification?.dateReceived | date :"yyyy-MM-dd"}}</td>
+    <td>{{notification?.letterNumber}}</td>
+  </tr>
+</table>

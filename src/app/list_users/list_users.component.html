@@ -1,0 +1,30 @@
+<!--<p>Tests</p>-->
+<!--<table>-->
+<!--  <tr *ngFor = "let testUser of testUsers">-->
+<!--    <td>-->
+<!--    Имя пользователя: {{testUser?.name}}-->
+<!--      <br>-->
+<!--    Возраст пользователя: {{testUser?.age}}-->
+<!--    </td>-->
+<!--  </tr>-->
+<!--</table>-->
+
+<p>Users</p>
+<table>
+  <tr *ngFor = "let user of users">
+    <td>
+      ID пользователя: {{user?.id}}
+      <br>
+      firstName пользователя: {{user?.firstName}}
+      <br>
+      lastName пользователя: {{user?.lastName}}
+      <br>
+      organization.id = {{user.organization.id}}
+      <br>
+      organization.name = {{user.organization.name}}
+      <br>
+      organization equals government: {{user.organization.government}}
+      <br>
+    </td>
+  </tr>
+</table>

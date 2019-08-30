@@ -11,11 +11,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
+import {ListUsersComponent} from './list_users/list_users.component';
+import {NotificationComponent} from './notes/notification.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpClientModule], // HttpModule = depricated
-  declarations: [ AppComponent], // all in here
-  bootstrap:    [ AppComponent ],
+  declarations: [ AppComponent, ListUsersComponent, NotificationComponent], // all in here
+  bootstrap:    [ /*AppComponent*/ NotificationComponent],
   providers: [],
 })
 export class AppModule { }
