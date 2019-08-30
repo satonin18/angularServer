@@ -1,3 +1,15 @@
+logs/*
+!.gitkeep
+node_modules/
+app/lib/
+tmp
+.DS_Store
+.idea
+
+
+
+
+
 
 # Created by https://www.gitignore.io/api/windows,angular,webstorm
 # Edit at https://www.gitignore.io/?templates=windows,angular,webstorm
