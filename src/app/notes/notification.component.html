@@ -11,20 +11,20 @@
 <p>Notifications/</p>
 <table>
   <tr>
-    <td>notification?.notificationType</td>
-    <td>notification?.organization.name</td>
-    <td>notification?.dateResponse</td>
-    <td>notification?.status.name</td>
-    <td>notification?.id</td>
-    <td>notification?.dateReceived</td>
-    <td>notification?.letterNumber</td>
+    <th>Вид уведомления</th>
+    <th>Заказчик</th>
+    <th>Срок предоставления ответа</th>
+    <th>Статус обработки уведомления</th>
+    <th>Номер уведомления</th>
+    <th>Дата получения уведомления</th>
+    <th>Номер письма</th>
   </tr>
 
   <tr *ngFor = "let notification of notifications">
     <td>{{notification?.notificationType}}</td>
     <td>{{notification?.organization.name}}</td>
     <td>{{notification?.dateResponse | date :"yyyy-MM-dd"}}</td>
-    <td>{{notification?.status.name}}</td>
+    <td>{{notification?.status}}</td><!--.name-->
     <td>{{notification?.id}}</td>
     <td>{{notification?.dateReceived | date :"yyyy-MM-dd"}}</td>
     <td>{{notification?.letterNumber}}</td>
