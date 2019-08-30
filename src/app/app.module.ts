@@ -12,12 +12,35 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ListUsersComponent} from './list_users/list_users.component';
-import {NotificationComponent} from './notes/notification.component';
+import {NotificationComponent} from './notifications/notification.component';
+import {RouterModule} from '@angular/router';
+import {CommonHeaderUserComponent} from './common_header_user/common_header_user.component';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, HttpClientModule], // HttpModule = depricated
-  declarations: [ AppComponent, ListUsersComponent, NotificationComponent], // all in here
-  bootstrap:    [ /*AppComponent*/ NotificationComponent],
+  imports:      [
+    BrowserModule,
+    FormsModule,
+    HttpClientModule, // HttpModule = depricated
+    // RouterModule.forRoot([
+      // {path: 'account/notifications/:id', component: NotificationDetailComponent},
+      // {path: 'account', component: AccountTableComponent},
+      // {path: '', redirectTo: 'account', pathMatch: 'full'},
+      // {path: 'account/notifications/:id/actions', component: ActionsHistoryComponent}
+      //  {path: '', component: NotificationComponent},
+      //  {path: '/users', component: ListUsersComponent}
+    // ]),
+  ],
+  declarations: [
+    AppComponent,
+    CommonHeaderUserComponent,
+    ListUsersComponent,
+    NotificationComponent
+  ],
+  bootstrap:    [
+    // AppComponent
+    // NotificationComponent
+    CommonHeaderUserComponent
+  ],
   providers: [],
 })
 export class AppModule { }

@@ -1,0 +1,29 @@
+<div id="common_header_user">
+  <table id="header_table">
+    <th style="text-align: left;">
+      <h5>ЛИЧНЫЙ КАБИНЕТ ЗАКАЗЧИКА</h5>
+    </th>
+    <th style="text-align: center;">
+      <h5>Oрганизация: {{user.organization.name}} </h5>
+    </th>
+    <th style="text-align: right;">
+<!--            <span id="attention_in_header_table">-->
+<!--                <c:if test="${user == null}">-->
+<!--                    (ОБЯЗАТЕЛЬНО ВЫБЕРИТЕ ПОЛЬЗОВАТЕЛЯ !!!)-->
+<!--                </c:if>-->
+<!--                <c:if test="${user.organization.government}">-->
+<!--                    Cотрудник органа власти-->
+<!--                </c:if>-->
+<!--            </span>-->
+      <div ng-disabled="user.organization.government">Cотрудник органа власти</div>
+
+      Текущий Пользователь: {{user.firstName}} {{user.lastName}}
+
+<!--      <Br><Br>-->
+<!--      <a class="href-nav-item"-->
+<!--         href="${pageContext.request.contextPath}/output"> Выйти </a>-->
+      <Br>
+<!--      </form>-->
+    </th>
+  </table>
+</div>
