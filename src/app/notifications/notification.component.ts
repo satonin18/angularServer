@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, OnChanges, OnInit} from '@angular/core';
 // import { HttpService} from './http.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -13,7 +13,7 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./notification.css'],
   // providers: [HttpService]
 })
-export class NotificationComponent implements OnInit {
+export class NotificationComponent implements OnInit, OnChanges {
 
   // notification: Notification;
   notifications: Notification[];
@@ -23,6 +23,9 @@ export class NotificationComponent implements OnInit {
   constructor(private http: HttpClient, private route: ActivatedRoute) { }
   // constructor(private httpService: HttpService) {}
 
+  ngOnChanges() {
+    console.log('Change');
+  }
   ngOnInit() {
     // this.http.get('user.json') //Observable<any>
     // this.httpService.getUsers()
@@ -38,7 +41,8 @@ export class NotificationComponent implements OnInit {
     //   console.log(this.notification);
     // });
 
-    this.http.get<Notification[]>('http://localhost:8081/lkz_project_war_exploded/angular/notifications')
+    // this.http.get<Notification[]>('http://localhost:8081/lkz_project_war_exploded/angular/notifications')
+    this.http.get<Notification[]>('http://localhost:8081/lkz_project_war_exploded/angular/notifications?userId=' + userId)
     .subscribe((notifications) => {
       this.notifications = notifications;
       console.log(this.notifications);

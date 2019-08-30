@@ -27,8 +27,8 @@ import {CommonHeaderUserComponent} from './common_header_user/common_header_user
       // {path: '', redirectTo: 'account', pathMatch: 'full'},
       // {path: 'account/notifications/:id/actions', component: ActionsHistoryComponent}
       {path: 'users', component: ListUsersComponent},
-      {path: 'notifications', component: NotificationComponent},
-      // {path: 'notification/:userId', component: NotificationComponent},
+      // {path: 'notifications', component: NotificationComponent},
+      {path: 'notifications/:userId', component: NotificationComponent},
       {path: '', redirectTo: 'users', pathMatch: 'full'},
 
     ]),

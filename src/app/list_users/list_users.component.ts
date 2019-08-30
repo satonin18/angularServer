@@ -1,9 +1,10 @@
-import { Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 // import { HttpService} from './http.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {TestUser} from '../models/TestUser';
 import {User} from '../models/User';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   // selector: 'app-root',
@@ -18,9 +19,19 @@ export class ListUsersComponent implements OnInit {
   // testUsers: TestUser[];
   users: User[];
 
-  response: any;
+  // @Output()
+  // onChangedUser = new EventEmitter<number>();
+  //
+  // selectUser(userId: number) {
+  //   this.onChangedUser.emit(userId);
+  //   console.log('selectUser');
+  //   routerLink="['/notifications', user?.id]
+  //   this.route.
+  // }
 
-  constructor(private http: HttpClient) { }
+  // response: any;
+
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
   // constructor(private httpService: HttpService) {}
 
   ngOnInit() {
