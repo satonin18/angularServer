@@ -6,7 +6,8 @@ import {TestUser} from '../models/TestUser';
 import {User} from '../models/User';
 
 @Component({
-  selector: 'app-root',
+  // selector: 'app-root',
+  selector: 'app-list-users-root',
   templateUrl: './list_users.component.html',
   styleUrls: ['./list_users.component.css'],
   // providers: [HttpService]

@@ -7,8 +7,8 @@ import {User} from '../models/User';
 import {Notification} from '../models/Notification';
 
 @Component({
-  // selector: 'common-header-user',
-  selector: 'app-root',
+  selector: 'app-common-header-user',
+  // selector: 'app-root',
   templateUrl: './common_header_user.component.html',
   styleUrls: ['./common_header_user.css'],
   // providers: [HttpService]

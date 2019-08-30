@@ -13,17 +13,28 @@
 <table>
   <tr *ngFor = "let user of users">
     <td>
-      ID пользователя: {{user?.id}}
+<!--      <a href="/notification?userId={{user?.id}}">войти</a>-->
+      <a class="href-nav-item" [routerLink]="['/notifications']">Войти</a>
+<!--      <a class="href-nav-item" [routerLink]="['/notifications?userId=', user?.id]">Войти</a>-->
+
       <br>
-      firstName пользователя: {{user?.firstName}}
+<!--      ID пользователя: {{user?.id}}-->
+<!--      <br>-->
+<!--      firstName пользователя:-->
+      {{user?.firstName}}
+<!--      <br>-->
+<!--      lastName пользователя:-->
+      {{user?.lastName}}
       <br>
-      lastName пользователя: {{user?.lastName}}
-      <br>
-      organization.id = {{user.organization.id}}
-      <br>
-      organization.name = {{user.organization.name}}
-      <br>
-      organization equals government: {{user.organization.government}}
+<!--      organization.id = {{user.organization.id}}-->
+<!--      <br>-->
+      organization
+<!--      .name =-->
+      {{user.organization.name}}
+<!--      <br>-->
+      <span *ngIf="user" >
+         (organization is government)
+      </span>
       <br>
     </td>
   </tr>

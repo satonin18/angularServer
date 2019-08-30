@@ -21,14 +21,17 @@ import {CommonHeaderUserComponent} from './common_header_user/common_header_user
     BrowserModule,
     FormsModule,
     HttpClientModule, // HttpModule = depricated
-    // RouterModule.forRoot([
+    RouterModule.forRoot([
       // {path: 'account/notifications/:id', component: NotificationDetailComponent},
       // {path: 'account', component: AccountTableComponent},
       // {path: '', redirectTo: 'account', pathMatch: 'full'},
       // {path: 'account/notifications/:id/actions', component: ActionsHistoryComponent}
-      //  {path: '', component: NotificationComponent},
-      //  {path: '/users', component: ListUsersComponent}
-    // ]),
+      {path: 'users', component: ListUsersComponent},
+      {path: 'notifications', component: NotificationComponent},
+      // {path: 'notification/:userId', component: NotificationComponent},
+      {path: '', redirectTo: 'users', pathMatch: 'full'},
+
+    ]),
   ],
   declarations: [
     AppComponent,
@@ -37,9 +40,9 @@ import {CommonHeaderUserComponent} from './common_header_user/common_header_user
     NotificationComponent
   ],
   bootstrap:    [
-    // AppComponent
+    AppComponent
     // NotificationComponent
-    CommonHeaderUserComponent
+    // CommonHeaderUserComponent
   ],
   providers: [],
 })

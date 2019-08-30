@@ -5,6 +5,7 @@ import {Observable} from 'rxjs';
 import {TestUser} from '../models/TestUser';
 import {User} from '../models/User';
 import {Notification} from '../models/Notification';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +15,12 @@ import {Notification} from '../models/Notification';
 })
 export class NotificationComponent implements OnInit {
 
-  notification: Notification;
+  // notification: Notification;
   notifications: Notification[];
 
   response: any;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: ActivatedRoute) { }
   // constructor(private httpService: HttpService) {}
 
   ngOnInit() {
@@ -29,11 +30,13 @@ export class NotificationComponent implements OnInit {
     // .subscribe(data => this.list_users=data["userList"]);
     //   .subscribe(data => this.list_users = data);
 
-    this.http.get<Notification>('http://localhost:8081/lkz_project_war_exploded/angular/notification')
-    .subscribe((notification) => {
-      this.notification = notification;
-      console.log(this.notification);
-    });
+    const userId = this.route.snapshot.paramMap.get('userId');
+
+    // this.http.get<Notification>('http://localhost:8081/lkz_project_war_exploded/angular/notification')// + '?userId=' + id)
+    // .subscribe((notification) => {
+    //   this.notification = notification;
+    //   console.log(this.notification);
+    // });
 
     this.http.get<Notification[]>('http://localhost:8081/lkz_project_war_exploded/angular/notifications')
     .subscribe((notifications) => {
