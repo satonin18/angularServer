@@ -9,6 +9,7 @@
 <!--  </tr>-->
 <!--</table>-->
 
+
 <p>Users</p>
 <table>
   <tr *ngFor = "let user of users">
@@ -37,7 +38,7 @@
 <!--      .name =-->
       {{user.organization.name}}
 <!--      <br>-->
-      <span *ngIf="user" >
+      <span *ngIf="user.organization.government">
          (organization is government)
       </span>
       <br>

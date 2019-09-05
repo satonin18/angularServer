@@ -1,0 +1,94 @@
+<!--&lt;!&ndash;<app-common-header-user></app-common-header-user>&ndash;&gt;-->
+<!--<div id="common_header_user">-->
+<!--  <table id="header_table">-->
+<!--    <th style="text-align: left;">-->
+<!--      <h5>ЛИЧНЫЙ КАБИНЕТ ЗАКАЗЧИКА</h5>-->
+<!--      &lt;!&ndash;      <h5 [routerLink]="['users']" class="error">(ОБЯЗАТЕЛЬНО ВЫБЕРИТЕ ПОЛЬЗОВАТЕЛЯ !!!)</h5>&ndash;&gt;-->
+<!--    </th>-->
+<!--    <th style="text-align: center;">-->
+<!--      <h5 *ngIf="user" >Oрганизация: {{user.organization.name}} </h5>-->
+<!--    </th>-->
+<!--    <th style="text-align: right;">-->
+<!--      &lt;!&ndash;            <span id="attention_in_header_table">&ndash;&gt;-->
+<!--      &lt;!&ndash;                <c:if test="${user == null}">&ndash;&gt;-->
+<!--      &lt;!&ndash;                    (ОБЯЗАТЕЛЬНО ВЫБЕРИТЕ ПОЛЬЗОВАТЕЛЯ !!!)&ndash;&gt;-->
+<!--      &lt;!&ndash;                </c:if>&ndash;&gt;-->
+<!--      &lt;!&ndash;                <c:if test="${user.organization.government}">&ndash;&gt;-->
+<!--      &lt;!&ndash;                    Cотрудник органа власти&ndash;&gt;-->
+<!--      &lt;!&ndash;                </c:if>&ndash;&gt;-->
+<!--      &lt;!&ndash;            </span>&ndash;&gt;-->
+<!--      <div *ngIf="user" class="account-header-user_info">-->
+<!--        <span id="attention_in_header_table" *ngIf="user.organization.government">Cотрудник органа власти</span>-->
+<!--        <Br>-->
+<!--        Текущий Пользователь: {{user.firstName}} {{user.lastName}}-->
+<!--      </div>-->
+
+<!--      &lt;!&ndash;      <a class="href-nav-item"&ndash;&gt;-->
+<!--      &lt;!&ndash;         href="/users">&ndash;&gt;-->
+<!--      &lt;!&ndash;        &ndash;&gt;-->
+<!--      &lt;!&ndash;      </a>&ndash;&gt;-->
+<!--      <a class="href-nav-item" [routerLink]="['/users']">Выйти</a>-->
+
+
+<!--    </th>-->
+<!--  </table>-->
+<!--</div>-->
+
+<!--<form action="filters"  method="post">-->
+<!--  <div id="filters">-->
+<!--    Фильтры:<Br>-->
+<!--    <table>-->
+<!--      <td id="filter" style="text-align: left; width: 30%;">-->
+<!--        <div *ngFor = "let tempStatus of render.statuses4selectFilter">-->
+<!--          <button>{{tempStatus}}</button>-->
+<!--          -->
+<!--          <input [attr.checked]="render.getCheckedMainListNotificStatuses() ? 'checked' : null"-->
+<!--          &lt;!&ndash;                 ${render.getCheckedMainListNotificStatuses().contains(tempStatus) ? 'checked' : ''}&ndash;&gt;-->
+<!--          class= "checkboxStatuses4select"-->
+<!--          type="checkbox"-->
+<!--          name="idFilterStatus"  value="${tempStatus.id}"-->
+<!--          onchange="-->
+<!--          // document.getElementById('flagNeedSetFirstPage').setAttribute('value', true);-->
+<!--          this.form.submit()"-->
+<!--          >-->
+<!--          ${tempStatus.name}-->
+<!--          </input>-->
+<!--        </div>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        showArchive = {{render.state.filterForm.showArchive}}-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        <input type="checkbox">(Mock)Быстрый фильтр<Br>-->
+<!--      </td>-->
+<!--      <td>-->
+<!--        (Mock)Кнопка «Показать дополнительные фильтры»-->
+<!--      </td>-->
+<!--    </table>-->
+<!--  </div>-->
+<!--</form>-->
+
+<!--notifications.length={{notifications.length}}-->
+
+<!--<p>Notifications/</p>-->
+<!--<table>-->
+<!--  <tr>-->
+<!--    <th>Вид уведомления</th>-->
+<!--    <th>Заказчик</th>-->
+<!--    <th>Срок предоставления ответа</th>-->
+<!--    <th>Статус обработки уведомления</th>-->
+<!--    <th>Номер уведомления</th>-->
+<!--    <th>Дата получения уведомления</th>-->
+<!--    <th>Номер письма</th>-->
+<!--  </tr>-->
+
+<!--  <tr *ngFor = "let notification of notifications">-->
+<!--    <td>{{notification?.notificationType}}</td>-->
+<!--    <td>{{notification?.organization.name}}</td>-->
+<!--    <td>{{notification?.dateResponse | date :"yyyy-MM-dd"}}</td>-->
+<!--    <td>{{notification?.status}}</td>&lt;!&ndash;.name&ndash;&gt;-->
+<!--    <td>{{notification?.id}}</td>-->
+<!--    <td>{{notification?.dateReceived | date :"yyyy-MM-dd"}}</td>-->
+<!--    <td>{{notification?.letterNumber}}</td>-->
+<!--  </tr>-->
+<!--</table>-->

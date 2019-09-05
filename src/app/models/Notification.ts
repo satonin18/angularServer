@@ -1,16 +1,17 @@
 import {User} from './User';
-import {NotificationStatus} from './NotificationStatus';
 import {Organization} from './Organization';
+import {Status} from './Status';
 // import {Action} from './Action';
 
 export class Notification {
   id: string;
   notificationType: string;
-  status: NotificationStatus;
+  status: Status;
   dateReceived: Date;
   dateResponse: Date;
   letterNumber: string;
   organization: Organization;
-  userNotificationAuthor: User;
+  userByIdUserCuratorGos: User;
+  userByIdUserImplementor: User;
   // actionsOfNotification: Action[];
 }

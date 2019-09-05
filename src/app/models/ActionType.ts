@@ -1,3 +1,4 @@
 export class ActionType {
-  message: string;
+  id: number;
+  name: string;
 }

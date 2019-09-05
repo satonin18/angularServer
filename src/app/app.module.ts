@@ -8,19 +8,22 @@ bootstrap: корневой компонент, который вызывает�
 */
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import {ListUsersComponent} from './list_users/list_users.component';
 import {NotificationComponent} from './notifications/notification.component';
 import {RouterModule} from '@angular/router';
 import {CommonHeaderUserComponent} from './common_header_user/common_header_user.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
-  imports:      [
+  imports: [
     BrowserModule,
     FormsModule,
     HttpClientModule, // HttpModule = depricated
+    ReactiveFormsModule,
+    NgxPaginationModule,
     RouterModule.forRoot([
       // {path: 'account/notifications/:id', component: NotificationDetailComponent},
       // {path: 'account', component: AccountTableComponent},
@@ -31,7 +34,7 @@ import {CommonHeaderUserComponent} from './common_header_user/common_header_user
       {path: 'notifications/:userId', component: NotificationComponent},
       {path: '', redirectTo: 'users', pathMatch: 'full'},
 
-    ]),
+    ])
   ],
   declarations: [
     AppComponent,
