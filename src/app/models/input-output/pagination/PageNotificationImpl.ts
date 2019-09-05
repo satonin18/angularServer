@@ -1,8 +1,8 @@
 import {Pageable} from './Pageable';
 import {Sort} from './Sort';
-import {Notification} from './Notification';
+import {Notification} from '../../entity/Notification';
 
-export interface PageImpl {
+export interface PageNotificationImpl {
 
   content: Notification[];
   pageable: Pageable;

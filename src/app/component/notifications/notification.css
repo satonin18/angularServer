@@ -68,4 +68,4 @@ span.radioDecorator > input:checked + button{ /* (RADIO CHECKED) IMAGE STYLES */
 .success {
   color: green;
 }
-
+.hoverElements:hover {background: #0078BF; color: #fff;}

@@ -2,9 +2,9 @@ import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angula
 // import { HttpService} from './http.service';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {TestUser} from '../models/TestUser';
-import {User} from '../models/User';
-import {Notification} from '../models/Notification';
+import {TestUser} from '../../models/test/TestUser';
+import {User} from '../../models/entity/User';
+import {Notification} from '../../models/entity/Notification';
 
 @Component({
   selector: 'app-common-header-user',

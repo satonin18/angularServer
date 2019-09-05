@@ -1,16 +1,16 @@
 import {Component, OnChanges, OnInit} from '@angular/core';
 // import { HttpService} from './http.service';
-import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {TestUser} from '../models/TestUser';
-import {User} from '../models/User';
-import {Notification} from '../models/Notification';
-import {ActivatedRoute} from '@angular/router';
+import {TestUser} from '../../models/test/TestUser';
+import {User} from '../../models/entity/User';
+import {Notification} from '../../models/entity/Notification';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormArray, FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {FilterForm} from '../models/FilterForm';
-import {Cabinet4renderHtml} from '../models/Cabinet4renderHtml';
-import {PaginationForm} from '../models/PaginationForm';
-import {OrderByForm} from '../models/OrderByForm';
+import {FilterForm} from '../../models/input-output/form/FilterForm';
+import {Cabinet4renderHtml} from '../../models/input-output/Cabinet4renderHtml';
+import {PaginationForm} from '../../models/input-output/form/PaginationForm';
+import {OrderByForm} from '../../models/input-output/form/OrderByForm';
 
 @Component({
   selector: 'app-root',
@@ -23,7 +23,7 @@ export class NotificationComponent implements OnInit, OnChanges {
 
   // notification: Notification;
   // notifications: Notification[];
-  user: User;
+  // user: User;
   render: Cabinet4renderHtml;
   // response: any;
   // list: string[];
@@ -39,16 +39,21 @@ export class NotificationComponent implements OnInit, OnChanges {
       _3: new FormControl(true),
     });
 
+  maxResultForm: FormGroup = new FormGroup({
+    maxResult: new FormControl(10) //todo replace
+    });
+
   newFilterForm: FilterForm = new FilterForm();
   newPaginationForm: PaginationForm = new PaginationForm();
   newOrderByForm: OrderByForm = new OrderByForm();
 
-  httpOptions = {
+  httpOptionsJson = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   };
-  constructor(private http: HttpClient, private route: ActivatedRoute, private formBuilder: FormBuilder
+
+  constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private formBuilder: FormBuilder
   ) { }
   // constructor(private httpService: HttpService) {}
 
@@ -56,7 +61,7 @@ export class NotificationComponent implements OnInit, OnChanges {
     console.log('Change');
   }
   ngOnInit() {
-    const userId = this.route.snapshot.paramMap.get('userId');
+    // const userId = this.route.snapshot.paramMap.get('userId');
 
     // this.http.get<Notification[]>('http://localhost:8081/lkz_project_war_exploded/angular/user_notifications?userId=' + userId)
     // .subscribe((notifications) => {
@@ -65,13 +70,22 @@ export class NotificationComponent implements OnInit, OnChanges {
     // });
 
 
-    this.http.get<User>('http://localhost:8081/lkz_project_war_exploded/angular/get_user?id=' + userId)
-      .subscribe((user) => {
-        this.user = user;
-        console.log(this.user);
-      });
-
-    this.http.get<Cabinet4renderHtml>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet4renderHtml?userId=' + userId)
+    // this.http.get<User>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/get_user?id=' + userId)
+    //   .subscribe((user) => {
+    //     this.user = user;
+    //     console.log(this.user);
+    //   });
+    // this.http.get<Cabinet4renderHtml>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/cabinet4renderHtml?userId=' + userId)
+    //   .subscribe((render) => {
+    //     this.render = render;
+    //     console.log(this.render);
+    //   });
+    // this.http.get<User>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/get_user')
+    //   .subscribe((user) => {
+    //     this.user = user;
+    //     console.log(this.user);
+    //   });
+    this.http.get<Cabinet4renderHtml>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/cabinet4renderHtml')
       .subscribe((render) => {
         this.render = render;
         console.log(this.render);
@@ -133,7 +147,7 @@ export class NotificationComponent implements OnInit, OnChanges {
 
     this.http.post<Cabinet4renderHtml>(
       // 'http://localhost:8081/lkz_project_war_exploded/angular/filters', JSON.stringify(this.render.state.filterForm), this.httpOptions)
-      'http://localhost:8081/lkz_project_war_exploded/angular/filters', JSON.stringify(this.newFilterForm), this.httpOptions)
+      'http://localhost:8081/lkz_project_war_exploded/angular/cabinet/filters', JSON.stringify(this.newFilterForm), this.httpOptionsJson)
       .subscribe((render) => {
         this.render = render;
         console.log(this.render);
@@ -144,7 +158,22 @@ export class NotificationComponent implements OnInit, OnChanges {
     this.newPaginationForm.page = event - 1;
 
     this.http.post<Cabinet4renderHtml>(
-      'http://localhost:8081/lkz_project_war_exploded/angular/pagination', JSON.stringify(this.newPaginationForm), this.httpOptions)
+      'http://localhost:8081/lkz_project_war_exploded/angular/cabinet/pagination', JSON.stringify(this.newPaginationForm), this.httpOptionsJson)
+      .subscribe((render) => {
+        this.render = render;
+        console.log(this.render);
+      });
+  }
+
+  open(notification: Notification) {
+    // this.router.navigate(['/notifications'], {queryParams: {'id': notification.id} });
+    this.router.navigate(['/notifications/' + notification.id]);
+  }
+
+  maxResultAply() {
+    this.newPaginationForm.maxResult = this.maxResultForm.get('maxResult').value;
+    this.http.post<Cabinet4renderHtml>(
+      'http://localhost:8081/lkz_project_war_exploded/angular/cabinet/pagination', JSON.stringify(this.newPaginationForm), this.httpOptionsJson)
       .subscribe((render) => {
         this.render = render;
         console.log(this.render);

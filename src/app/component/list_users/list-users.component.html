@@ -12,18 +12,18 @@
 
 <p>Users</p>
 <table>
-  <tr *ngFor = "let user of users">
-    <td>
+  <tr *ngFor = "let user of users" class="hoverElements">
+    <td (click)="input(user)">
 <!--      <a href="/notification?userId={{user?.id}}">войти</a>-->
 <!--      <a class="href-nav-item" [routerLink]="['/notifications']">Войти</a>-->
 <!--      <a class="href-nav-item" [routerLink]="['/notifications?userId=', user?.id]">Войти</a>-->
 
 <!--      <a class="href-nav-item" [routerLink]="['/notifications', user?.id]">Войти</a>-->
-      <a class="href-nav-item" [routerLink]="['/notifications', user?.id]">Войти</a>
+<!--      <a class="href-nav-item" [routerLink]="['/notifications', user?.id]">Войти</a>-->
       <!--(click)="selectUser(user?.id)"-->
 
 
-      <br>
+<!--      <br>-->
 <!--      ID пользователя: {{user?.id}}-->
 <!--      <br>-->
 <!--      firstName пользователя:-->

@@ -11,11 +11,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
-import {ListUsersComponent} from './list_users/list_users.component';
-import {NotificationComponent} from './notifications/notification.component';
+import {ListUsersComponent} from './component/list_users/list-users.component';
+import {NotificationComponent} from './component/notifications/notification.component';
 import {RouterModule} from '@angular/router';
-import {CommonHeaderUserComponent} from './common_header_user/common_header_user.component';
+import {CommonHeaderUserComponent} from './component/common_header_user/common_header_user.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {TheNotificationComponent} from './component/the_notification/the-notification.component';
 
 @NgModule({
   imports: [
@@ -29,9 +30,10 @@ import {NgxPaginationModule} from 'ngx-pagination';
       // {path: 'account', component: AccountTableComponent},
       // {path: '', redirectTo: 'account', pathMatch: 'full'},
       // {path: 'account/notifications/:id/actions', component: ActionsHistoryComponent}
+
       {path: 'users', component: ListUsersComponent},
-      // {path: 'notifications', component: NotificationComponent},
-      {path: 'notifications/:userId', component: NotificationComponent},
+      {path: 'notifications', component: NotificationComponent},
+      {path: 'notifications/:id', component: TheNotificationComponent},
       {path: '', redirectTo: 'users', pathMatch: 'full'},
 
     ])
@@ -40,7 +42,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AppComponent,
     CommonHeaderUserComponent,
     ListUsersComponent,
-    NotificationComponent
+    NotificationComponent,
+    TheNotificationComponent
   ],
   bootstrap:    [
     AppComponent

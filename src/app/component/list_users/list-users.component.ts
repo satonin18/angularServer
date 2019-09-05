@@ -1,16 +1,16 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 // import { HttpService} from './http.service';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {TestUser} from '../models/TestUser';
-import {User} from '../models/User';
-import {ActivatedRoute} from '@angular/router';
+import {TestUser} from '../../models/test/TestUser';
+import {User} from '../../models/entity/User';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   // selector: 'app-root',
   selector: 'app-list-users-root',
-  templateUrl: './list_users.component.html',
-  styleUrls: ['./list_users.component.css'],
+  templateUrl: './list-users.component.html',
+  styleUrls: ['./list-users.component.css'],
   // providers: [HttpService]
 })
 export class ListUsersComponent implements OnInit {
@@ -31,7 +31,7 @@ export class ListUsersComponent implements OnInit {
 
   // response: any;
 
-  constructor(private http: HttpClient, private route: ActivatedRoute) { }
+  constructor(private http: HttpClient, private router: Router, private route: ActivatedRoute) { }
   // constructor(private httpService: HttpService) {}
 
   ngOnInit() {
@@ -53,10 +53,25 @@ export class ListUsersComponent implements OnInit {
     //   console.log(this.testUsers);
     // });
 
-    this.http.get<User[]>('http://localhost:8081/lkz_project_war_exploded/angular/users')
+    this.http.get<User[]>('http://localhost:8081/lkz_project_war_exploded/angular/input/users')
     .subscribe((users) => {
       this.users = users;
       console.log(this.users);
     });
+  }
+
+  input(user: User) {
+
+    const httpOptions = {
+      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
+    };
+    let body = new HttpParams();
+    body = body.set('id', user.id.toString());
+
+    this.http.post<boolean>('http://localhost:8081/lkz_project_war_exploded/angular/input/has_user', body, httpOptions)
+      .subscribe((hasUser) => {
+
+        if (hasUser) this.router.navigate(['/notifications']);
+      });
   }
 }
