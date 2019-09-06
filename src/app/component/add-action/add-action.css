@@ -69,3 +69,6 @@ span.radioDecorator > input:checked + button{ /* (RADIO CHECKED) IMAGE STYLES */
   color: green;
 }
 .hoverElements:hover {background: #0078BF; color: #fff;}
+
+input.ng-touched.ng-invalid {border:solid red 2px;}
+input.ng-touched.ng-valid {border:solid green 2px;}

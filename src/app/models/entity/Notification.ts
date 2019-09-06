@@ -4,7 +4,7 @@ import {Status} from './Status';
 // import {Action} from './Action';
 
 export class Notification {
-  id: string;
+  id: number;
   notificationType: string;
   status: Status;
   dateReceived: Date;

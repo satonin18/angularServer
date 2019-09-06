@@ -3,7 +3,7 @@ import {ActionType} from './ActionType';
 import {Status} from './Status';
 
 export class Action {
-  id: string;
+  id: number;
   actionType: ActionType;
   content: string;
   date: Date;

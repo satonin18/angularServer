@@ -46,24 +46,32 @@
 </div>
 
 <div id="content">
-  <div id="add_action">
-    <form (ngSubmit)="addActionAply()"
-          [formGroup]="addActionForm" >
+  <div id="add_action" class="form-group">
+<!--    <form (ngSubmit)="addActionAply()"-->
+<!--          [formGroup]="addActionForm" >-->
 
-<!--      <input type="hidden"  [value]="render.currentNotification.id" formControlName="notificationId">-->
+<!--      <input type="hidden" [value]="render.currentNotification.id"-->
+<!--             class="form-control" name="notificationId"-->
+<!--             [(ngModel)]="actionPortionDto.notificationId" #notificationId="ngModel" required >-->
+<!--    <div [hidden]="notificationId.valid" class="alert alert-danger">-->
+<!--      Error loading web-page !!!!-->
+<!--    </div>-->
 
       <table class="table4input_data" style="width: auto">
         <tr>
           <th>Ответственный исполнитель заказчика:</th>
           <td>
-            <select type="text" formControlName="idUserImplementor" required > <!--name="maxResult"-->
+            <select type="text" class="form-control" name="idUserImplementor"
+                    [(ngModel)]="actionPortionDto.idUserImplementor" #idUserImplementor="ngModel" required > <!--name="maxResult"-->
               <option *ngFor="let tempUser of render.users"
                       [value]="tempUser.id"
                       [selected]="tempUser.id == render.user.id">
                 {{tempUser.firstName}} {{tempUser.lastName}}
               </option>
+              <div [hidden]="idUserImplementor.valid || idUserImplementor.untouched" class="error alert alert-danger">
+                Некорректное поле
+              </div>
             </select>
-
 <!--            <div [hidden]="name.valid || name.untouched" class="alert alert-danger">-->
 <!--              Не указано имя-->
 <!--            </div>-->
@@ -73,12 +81,16 @@
         <tr>
           <th>Действие:</th>
           <td>
-            <select type="text" formControlName="idActionType" required > <!--name="maxResult"-->
+            <select type="text" class="form-control" name="idActionType"
+                    [(ngModel)]="actionPortionDto.idActionType" #idActionType="ngModel" required > <!--name="maxResult"-->
               <option *ngFor="let tempActionType of render.listActionType"
                       [value]="tempActionType.id">
                 {{tempActionType.name}}
               </option>
 <!--              <%&#45;&#45;selected="${user.id.equals(tempUser.id)}&#45;&#45;%>-->
+              <div [hidden]="idActionType.valid || idActionType.untouched" class="error alert alert-danger">
+                Некорректное поле
+              </div>
             </select>
           </td>
         </tr>
@@ -86,12 +98,16 @@
         <tr>
           <th>Статус:</th>
           <td>
-            <select type="text" formControlName="idNotificationStatus" required > <!--name="maxResult"-->
+            <select type="text" class="form-control" name="idNotificationStatus"
+                    [(ngModel)]="actionPortionDto.idNotificationStatus" #idNotificationStatus="ngModel" required > <!--name="maxResult"-->
               <option *ngFor="let tempStatus of render.listStatus"
                       [value]="tempStatus.id">
                 {{tempStatus.name}}
               </option>
               <!--              <%&#45;&#45;selected="${user.id.equals(tempUser.id)}&#45;&#45;%>-->
+              <div [hidden]="idNotificationStatus.valid || idNotificationStatus.untouched" class="error alert alert-danger">
+                Некорректное поле
+              </div>
             </select>
           </td>
         </tr>
@@ -99,10 +115,13 @@
         <tr>
           <th>Комментарий:</th>
           <td>
-            <textarea maxlength="300"
+            <textarea minlength="2" maxlength="300"
                       rows="4" cols="50"
-                      formControlName="content"
-                      required ></textarea>
+                      class="form-control" name="content"
+                      [(ngModel)]="actionPortionDto.content" #content="ngModel" required ></textarea>
+            <div [hidden]="content.valid || content.untouched" class="error alert alert-danger">
+              Некорректное поле
+            </div>
           </td>
         </tr>
 
@@ -110,7 +129,8 @@
 
       <Br>
 <!--      style="background-color: #4CAF50; color: white; display: inline-block;" <%--class="green_button"--%>-->
-      <button type="button" class="green_button"
+      <button type="button"
+              [disabled]="idUserImplementor.invalid || idActionType.invalid || idNotificationStatus.invalid || content.invalid"
               (click)="addActionAply()">
       СОХРАНИТЬ
       </button>
@@ -120,7 +140,7 @@
               [routerLink]="['..']">
       ОТМЕНА
       </button>
-    </form>
+<!--    </form>-->
 
   </div>
 </div>

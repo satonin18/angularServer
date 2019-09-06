@@ -15,6 +15,7 @@ import {TheNotification4renderHtml} from '../../models/input-output/TheNotificat
 import {AddAction4renderHtml} from '../../models/input-output/AddAction4renderHtml';
 import {ActionPortionDto} from '../../models/input-output/dto.valid/ActionPortionDto';
 import {Location} from '@angular/common';
+import {NgForm} from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -33,13 +34,13 @@ export class AddAction implements OnInit, OnChanges{
       'Content-Type': 'application/json'
     })
   };
-  addActionForm: FormGroup = new FormGroup({//todo replace
-    // notificationId: new FormControl(),
-    idUserImplementor: new FormControl(),
-    idActionType: new FormControl(),
-    idNotificationStatus: new FormControl(),
-    content: new FormControl()
-  });
+  // addActionForm: FormGroup = new FormGroup({//todo replace
+  //   // notificationId: new FormControl(),
+  //   idUserImplementor: new FormControl(),
+  //   idActionType: new FormControl(),
+  //   idNotificationStatus: new FormControl(),
+  //   content: new FormControl()
+  // });
 
   constructor(private http: HttpClient, private route: ActivatedRoute, private router: Router, private location: Location) { }
   // constructor(private httpService: HttpService) {}
@@ -67,6 +68,9 @@ export class AddAction implements OnInit, OnChanges{
   }
 
   addActionAply() {
+    // this.notificationId = this.route.snapshot.paramMap.get('id');
+    // this.actionPortionDto.notificationId = Number( this.notificationId );
+    this.actionPortionDto.notificationId = this.render.currentNotification.id;
 
     // console.log('------------------------------')
     // console.log(this.addActionForm.get('notificationId').value);
@@ -76,17 +80,15 @@ export class AddAction implements OnInit, OnChanges{
     // console.log(this.addActionForm.controls.idUserImplementor.value);
     // console.log('------------------------------')
 
-    this.notificationId = this.route.snapshot.paramMap.get('id');
-    console.log('------------------------------')
-    console.log(this.notificationId );
-    console.log( Number( this.notificationId ) );
-    // this.actionPortionDto.notificationId = Number( this.addActionForm.get('notificationId').value );
-    this.actionPortionDto.notificationId = Number( this.notificationId );
-
-    this.actionPortionDto.idUserImplementor = this.addActionForm.get('idUserImplementor').value;
-    this.actionPortionDto.idActionType = this.addActionForm.get('idActionType').value;
-    this.actionPortionDto.idNotificationStatus = this.addActionForm.get('idNotificationStatus').value;
-    this.actionPortionDto.content = this.addActionForm.get('content').value;
+    // console.log('------------------------------')
+    // console.log(this.notificationId );
+    // console.log( Number( this.notificationId ) );
+    // // this.actionPortionDto.notificationId = Number( this.addActionForm.get('notificationId').value );
+    //
+    // this.actionPortionDto.idUserImplementor = this.addActionForm.get('idUserImplementor').value;
+    // this.actionPortionDto.idActionType = this.addActionForm.get('idActionType').value;
+    // this.actionPortionDto.idNotificationStatus = this.addActionForm.get('idNotificationStatus').value;
+    // this.actionPortionDto.content = this.addActionForm.get('content').value;
 
     this.http.post<boolean>(
       'http://localhost:8081/lkz_project_war_exploded/angular/cabinet/the_notification/add_action/save',
