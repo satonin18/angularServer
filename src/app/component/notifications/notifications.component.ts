@@ -14,12 +14,12 @@ import {OrderByForm} from '../../models/input-output/form/OrderByForm';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './notification.component.html',
-  styleUrls: ['./notification.css'],
+  templateUrl: './notifications.component.html',
+  styleUrls: ['./notifications.css'],
 
   // providers: [HttpService]
 })
-export class NotificationComponent implements OnInit, OnChanges {
+export class NotificationsComponent implements OnInit, OnChanges {
 
   // notification: Notification;
   // notifications: Notification[];

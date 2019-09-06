@@ -15,12 +15,12 @@ import {TheNotification4renderHtml} from '../../models/input-output/TheNotificat
 
 @Component({
   selector: 'app-root',
-  templateUrl: './the-notification.component.html',
-  styleUrls: ['./the-notification.css'],
+  templateUrl: './actions.html',
+  styleUrls: ['./actions.css'],
 
   // providers: [HttpService]
 })
-export class TheNotificationComponent implements OnInit, OnChanges {
+export class Actions implements OnInit, OnChanges {
 
   // user: User;
   render: TheNotification4renderHtml;
@@ -47,7 +47,7 @@ export class TheNotificationComponent implements OnInit, OnChanges {
   }
   ngOnInit() {
 
-    // this.http.get<User>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/get_user') //todo cabinet
+    // this.http.get<User>('http://localhost:8081/lkz_project_war_exploded/angular/cabinet/get_user') //todo notifications
     //   .subscribe((user) => {
     //     this.user = user;
     //     console.log(this.user);

@@ -38,8 +38,8 @@ export class ListUsersComponent implements OnInit {
     // this.http.get('user.json') //Observable<any>
     // this.httpService.getUsers()
     // .subscribe((data:User) => this.user=data);
-    // .subscribe(data => this.list_users=data["userList"]);
-    //   .subscribe(data => this.list_users = data);
+    // .subscribe(data => this.list-users=data["userList"]);
+    //   .subscribe(data => this.list-users = data);
 
     // this.http.get<TestUser>('http://localhost:8081/lkz_project_war_exploded/angular/test_user')
     // .subscribe((testUser) => {

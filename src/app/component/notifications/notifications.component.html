@@ -63,84 +63,49 @@
           <!--                    >-->
           <!--        </div>-->
 
-<!--          <div>-->
-            {{render.statuses4selectFilter[0].name}}
-            <input
-              [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[0].id)"
-              class= "checkboxStatuses4select"
-              type="checkbox"
-              formControlName ="_0" value="true"
-              (change)="filterAply()"
-            >
+          <!--          <div>-->
+          {{render.statuses4selectFilter[0].name}}
+          <input
+            [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[0].id)"
+            class= "checkboxStatuses4select"
+            type="checkbox"
+            formControlName ="_0" value="true"
+            (change)="filterAply()"
+          >
           <br>
-<!--          </div>-->
-<!--          <div>-->
-            {{render.statuses4selectFilter[1].name}}
-            <input
-              [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[1].id)"
-              class= "checkboxStatuses4select"
-              type="checkbox"
-              formControlName ="_1" value="true"
-              (change)="filterAply()"
-            >
+          <!--          </div>-->
+          <!--          <div>-->
+          {{render.statuses4selectFilter[1].name}}
+          <input
+            [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[1].id)"
+            class= "checkboxStatuses4select"
+            type="checkbox"
+            formControlName ="_1" value="true"
+            (change)="filterAply()"
+          >
           <br>
-<!--          </div>-->
-<!--          <div>-->
-            {{render.statuses4selectFilter[2].name}}
-            <input
-              [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[2].id)"
-              class= "checkboxStatuses4select"
-              type="checkbox"
-              formControlName ="_2" value="true"
-              (change)="filterAply()"
-            >
+          <!--          </div>-->
+          <!--          <div>-->
+          {{render.statuses4selectFilter[2].name}}
+          <input
+            [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[2].id)"
+            class= "checkboxStatuses4select"
+            type="checkbox"
+            formControlName ="_2" value="true"
+            (change)="filterAply()"
+          >
           <br>
-<!--          </div>-->
-<!--          <div>-->
-            {{render.statuses4selectFilter[3].name}}
-            <input
-              [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[3].id)"
-              class= "checkboxStatuses4select"
-              type="checkbox"
-              formControlName ="_3" value="true"
-              (change)="filterAply()"
-            >
-<!--          </div>-->
-          <!--[checked]="render.checkedMainListNotificStatuses.contains(tempStatus)"-->
-          <!--        <div *ngFor = "let tempStatus of render.statuses4selectFilter">-->
-          <!--          <button>{{tempStatus.name}}</button>-->
-          <!--          <input-->
-          <!--          class= "checkboxStatuses4select"-->
-          <!--          type="checkbox"-->
-          <!--          formControlName ="idFilterStatus" value="{{tempStatus.id}}"-->
-          <!--          [checked]="render.checkedMainListNotificStatuses.includes(tempStatus)"-->
-          <!--          >-->
-          <!--          name="idFilterStatus"  value="{{tempStatus.id}}"-->
-          <!--          onchange="-->
-          <!--          // document.getElementById('flagNeedSetFirstPage').setAttribute('value', true);-->
-          <!--          this.form.submit()"-->
-
-          <!--        >-->
-          <!--          {{tempStatus.name}}-->
-          <!--          </input>-->
-          <!--        </div>-->
-          <!--      </td>-->
-          <!--      <td class="filterColumn" style="text-align: left; width: 30%;">-->
-          <!--        checkedMainListNotificStatuses-->
-          <!--        <div *ngFor = "let tempStatus of render.checkedMainListNotificStatuses">-->
-          <!--          <button>{{tempStatus.name}}</button>-->
-          <!--          <input-->
-          <!--          class= "checkboxStatuses4select"-->
-          <!--          type="checkbox">-->
-          <!--&lt;!&ndash;          name="idFilterStatus"  value="{{tempStatus.id}}">&ndash;&gt;-->
-          <!--&lt;!&ndash;          onchange="&ndash;&gt;-->
-          <!--&lt;!&ndash;          // document.getElementById('flagNeedSetFirstPage').setAttribute('value', true);&ndash;&gt;-->
-          <!--&lt;!&ndash;          this.form.submit()"&ndash;&gt;-->
-
-          <!--&lt;!&ndash;          {{tempStatus.name}}&ndash;&gt;-->
-          <!--&lt;!&ndash;          </input>&ndash;&gt;-->
-          <!--        </div>-->
-                </td>
+          <!--          </div>-->
+          <!--          <div>-->
+          {{render.statuses4selectFilter[3].name}}
+          <input
+            [checked]="render.newCheckedMainListNotificStatusesId.includes(render.statuses4selectFilter[3].id)"
+            class= "checkboxStatuses4select"
+            type="checkbox"
+            formControlName ="_3" value="true"
+            (change)="filterAply()"
+          >
+        </td>
         <td>
           <!--        Показывать архивные уведомления = {{render.state.filterForm.showArchive}}-->
           Показывать архивные уведомления:
@@ -178,10 +143,10 @@
   </form>
 
   <div id="sort">
-<!--          Сортировка по:-->
-<!--          <select class="account-filter-form-sorting-select" id="select1" formControlName="sortParameter">-->
-<!--            <option *ngFor="let sortParameter of sortParameters" [value]="sortParameter">{{sortParameter | sortParameterPipe}}</option>-->
-<!--          </select>-->
+    <!--          Сортировка по:-->
+    <!--          <select class="account-filter-form-sorting-select" id="select1" formControlName="sortParameter">-->
+    <!--            <option *ngFor="let sortParameter of sortParameters" [value]="sortParameter">{{sortParameter | sortParameterPipe}}</option>-->
+    <!--          </select>-->
   </div>
 
   <div id="pagination">
@@ -193,36 +158,19 @@
         <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
       </td>
       <td style="text-align: right">
-                <div id="selectMaxResult">
-                  Показывать по :
-                  <form (ngSubmit)="maxResultAply()"
-                        [formGroup]="maxResultForm" >
+        <div id="selectMaxResult">
+          Показывать по :
+          <form (ngSubmit)="maxResultAply()"
+                [formGroup]="maxResultForm" >
 
-                        <select type="text" formControlName="maxResult" (change)="maxResultAply()"> <!--name="maxResult"-->
-                          <option *ngFor="let maxResult of render.selectShowListMaxResult" [value]="maxResult"
-                                  [selected]="maxResult==render.state.paginationForm.maxResult">
-                            {{maxResult}}
-                          </option>
-                        </select>
-                  </form>
-<!--                  <select type="text" name="maxResult"-->
-<!--                          onchange="-->
-<!--                // document.getElementById('flagNeedSetFirstPage').setAttribute('value', 'true');-->
-<!--                this.form.submit()"-->
-<!--                  ><%&#45;&#45;multiple="true"&#45;&#45;%>-->
-<!--                    <c:forEach items="${selectShowListMaxResult}" var="tempMaxResult">-->
-<!--                      <c:choose>-->
-<!--                        <c:when test="${tempMaxResult.equals(render.getPageImpl().getPageable().getPageSize())}">-->
-<!--                          <option selected-->
-<!--                                  value ="${tempMaxResult}">${tempMaxResult}</option>-->
-<!--                        </c:when>-->
-<!--                        <c:otherwise>-->
-<!--                          <option value ="${tempMaxResult}">${tempMaxResult}</option>-->
-<!--                        </c:otherwise>-->
-<!--                      </c:choose>-->
-<!--                    </c:forEach>-->
-<!--                  </select>-->
-                </div>
+            <select type="text" formControlName="maxResult" (change)="maxResultAply()"> <!--name="maxResult"-->
+              <option *ngFor="let maxResult of render.selectShowListMaxResult" [value]="maxResult"
+                      [selected]="maxResult==render.state.paginationForm.maxResult">
+                {{maxResult}}
+              </option>
+            </select>
+          </form>
+        </div>
       </td>
     </table>
   </div>
@@ -252,7 +200,7 @@
           class="hoverElements"
           (click)="open(notification)"
       >
-<!--        [routerLink]="['notifications', notification.id]"-->
+        <!--        [routerLink]="['notifications', notification.id]"-->
 
         <td><input type="checkbox"></td>
         <td>{{(i+1) + render.state.paginationForm.page * render.state.paginationForm.maxResult}}</td>

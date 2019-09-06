@@ -6,6 +6,7 @@ import {PageActionImpl} from './pagination/PageActionImpl';
 import {User} from '../entity/User';
 import {ColumnCabinetTable} from './ColumnCabinetTable';
 import {ActionType} from '../entity/ActionType';
+import {Notification} from '../entity/Notification';
 import {ColumnTheNotificationTable} from './ColumnTheNotificationTable';
 
 export class TheNotification4renderHtml {

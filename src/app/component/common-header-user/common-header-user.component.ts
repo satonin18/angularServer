@@ -9,8 +9,8 @@ import {Notification} from '../../models/entity/Notification';
 @Component({
   selector: 'app-common-header-user',
   // selector: 'app-root',
-  templateUrl: './common_header_user.component.html',
-  styleUrls: ['./common_header_user.css'],
+  templateUrl: './common-header-user.component.html',
+  styleUrls: ['./common-header-user.css'],
   // providers: [HttpService]
 })
 export class CommonHeaderUserComponent implements OnInit, OnChanges {
